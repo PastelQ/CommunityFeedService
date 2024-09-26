@@ -24,6 +24,7 @@ public class CourseService {
     courseRepository.save(course);
   }
   // 수강 목록 구현
+  // courses(List)를 스트림으로 변환 -> map() DTO 객체로 변환 -> 해당 stream의 모든 요소를 List로 수집해 CourseInfoDto 객체들로 이뤄진 List로 반환 
   public List<CourseInfoDto> getCourseDayOfWeek(DayOfWeek dayOfWeek) {
     List<Course> courses = courseRepository.getCourseDayOfWeek(dayOfWeek);
     return courses.stream().map(CourseInfoDto::new).toList();
