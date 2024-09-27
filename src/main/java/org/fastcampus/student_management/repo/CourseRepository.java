@@ -24,7 +24,8 @@ public class CourseRepository {
     }
     return courses;
   }
-
+  
+  // 학생 이름으로 과목 리스트 가져오기
   public List<Course> getCourseListByStudent(String studentName) {
     List<Course> courses = new ArrayList<>();
     for (Course course : courseMap.values()) {
