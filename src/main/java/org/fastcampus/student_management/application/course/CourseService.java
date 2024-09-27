@@ -1,10 +1,11 @@
 package org.fastcampus.student_management.application.course;
 
-import java.util.ArrayList;
 import java.util.List;
+
 import org.fastcampus.student_management.application.course.dto.CourseInfoDto;
 import org.fastcampus.student_management.application.student.StudentService;
 import org.fastcampus.student_management.domain.Course;
+import org.fastcampus.student_management.domain.CourseList;
 import org.fastcampus.student_management.domain.DayOfWeek;
 import org.fastcampus.student_management.domain.Student;
 import org.fastcampus.student_management.repo.CourseRepository;
@@ -33,13 +34,8 @@ public class CourseService {
   // 수강료 변경
   public void changeFee(String studentName, int fee) {
 	  List<Course> courses = courseRepository.getCourseListByStudent(studentName);
-	  
-	  for(Course course : courses) {
-		  // 개선할 수 있는 부분 : 추가로 주말에는 1.5배 더 가격을 받아야 한다를 추가한다면?
-		  if(course.isSameDay(DayOfWeek.SATURDAY) || course.isSameDay(DayOfWeek.SUNDAY)) {
-			  course.changeFee((int)(fee * 1.5));
-		  }
-		  course.changeFee(fee);
-	  }
+	  // 1급 컬렉션 활용 (CourseList) : 반복문 For 뎁스를 없애고 CourseList 인스턴스 생성 및 내부 메서드 사용
+	  CourseList courseList = new CourseList(courses);
+	  courseList.changeAllCoursesFee(fee);
   }
 }

@@ -1,6 +1,6 @@
 package org.fastcampus.student_management.domain;
 
-// 수강료 관련 유효성 검사를 VO를 생성해서 진행
+// VO
 public class CourseFee {
 
 	private int fee;
@@ -11,6 +11,7 @@ public class CourseFee {
 	
 	// 수강료 변경
 	public void changeFee(int fee) {
+		checkFee(fee); // fee 값 검사(음수인지)
 		this.fee = fee;
 	}
 	
