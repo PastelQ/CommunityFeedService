@@ -35,7 +35,11 @@ public class CourseService {
 	  List<Course> courses = courseRepository.getCourseListByStudent(studentName);
 	  
 	  for(Course course : courses) {
-		  
+		  // 개선할 수 있는 부분 : 추가로 주말에는 1.5배 더 가격을 받아야 한다를 추가한다면?
+		  if(course.isSameDay(DayOfWeek.SATURDAY) || course.isSameDay(DayOfWeek.SUNDAY)) {
+			  course.changeFee((int)(fee * 1.5));
+		  }
+		  course.changeFee(fee);
 	  }
   }
 }
