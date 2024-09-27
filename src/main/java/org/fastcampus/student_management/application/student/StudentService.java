@@ -25,12 +25,14 @@ public class StudentService {
   // 학생 활성화하기
   public void activateStudent(String name) {
 	  Student student = getStudent(name);
-	  student.setActivated(true);
+	  student.activate(); // 어떤 동작을 할지 메서드 명으로 전달하기 때문에 가독성 증가
+	  //student.setActivated(false);
   }
   
   // 학생 비활성화하기
   public void deactivateStudent(String name) {
 	  Student student = getStudent(name);
-	  student.setActivated(false);
+	  student.deactivate(); // 어떤 동작을 할지 메서드 명으로 전달하기 때문에 가독성 증가
+	  //student.setActivated(false);
   }
 }
