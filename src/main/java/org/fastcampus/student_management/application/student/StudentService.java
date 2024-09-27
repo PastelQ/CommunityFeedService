@@ -21,12 +21,16 @@ public class StudentService {
     return studentRepository.findByName(name)
         .orElseThrow(() -> new IllegalArgumentException("해당하는 학생이 없습니다."));
   }
-
+  
+  // 학생 활성화하기
   public void activateStudent(String name) {
-    // TODO: 과제 구현 부분
+	  Student student = getStudent(name);
+	  student.setActivated(true);
   }
-
+  
+  // 학생 비활성화하기
   public void deactivateStudent(String name) {
-    // TODO: 과제 구현 부분
+	  Student student = getStudent(name);
+	  student.setActivated(false);
   }
 }

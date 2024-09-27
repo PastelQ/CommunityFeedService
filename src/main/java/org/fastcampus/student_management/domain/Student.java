@@ -18,6 +18,19 @@ public class Student {
     this.activated = true;
   }
 
+  public void setActivated(boolean activated) {
+	  // 둘다 true일 경우
+	  if(activated && this.activated) {
+		  throw new IllegalArgumentException(); 
+	  }
+	  // 둘다 false일 경우
+	  if(!activated && this.activated) {
+		  throw new IllegalArgumentException();
+	  }
+	  
+	  this.activated = activated;
+  }
+  
   public String getName() {
     return name;
   }
