@@ -66,4 +66,9 @@ public class User {
     User other = (User) obj;
     return Objects.equals(id, other.id);
   }
+  
+  // User의 id를 반환하는 Get method
+  public Long getId() {
+    return id;
+  }
 }

@@ -5,20 +5,19 @@ import org.fastcampus.user.domain.User;
 // 게시글 도메인
 public class Post {
 
-  private final User author;
-  private final String content;
+  // User 객체를 가져오지 않고 Id(Long 타입)만 가져옴
+  // private final User author;
+  private final Long authorId;
+  private final PostContent content;
   
-  // Constructor : 유효성(작성자 !null & 5 <= 게시글 글자 <= 500)
-  public Post(User author, String content) {
-    if (author == null) {
+  // Constructor : 유효성(작성자 !null)
+  public Post(Long authorId, PostContent content) {
+    if (authorId == null) {
       throw new IllegalArgumentException();
     }
     
-    if (content == null || content.length() < 5 || content.length() > 500) {
-      throw new IllegalArgumentException();
-    }
-    
-    this.author = author;
+    // this.author = author;
+    this.authorId = authorId;
     this.content = content;
   }
 }
