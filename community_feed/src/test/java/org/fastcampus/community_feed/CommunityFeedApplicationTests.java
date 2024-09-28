@@ -1,10 +1,10 @@
-package org.fastcampus.commnity_feed;
+package org.fastcampus.community_feed;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class CommnityFeedApplicationTests {
+class CommunityFeedApplicationTests {
 
 	@Test
 	void contextLoads() {

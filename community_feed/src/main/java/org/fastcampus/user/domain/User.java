@@ -6,13 +6,11 @@ import java.util.Objects;
 public class User {
 
   private final Long id;
-  private final String name;
-  private final String profileImageUrl;
+  private final UserInfo info; // UserInfo VO로 대체
   
-  public User(Long id, String name, String profileImageUrl) {
+  public User(Long id, UserInfo userInfo) {
     this.id = id;
-    this.name = name;
-    this.profileImageUrl = profileImageUrl;
+    this.info = userInfo;
   }
   
   //필드 id : 객체를 메모리 주소값으로 비교를 하기 때문에 hashCode(), equals()를 재정의해야함
