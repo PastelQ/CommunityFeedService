@@ -24,7 +24,7 @@ public class User {
     }
     
     followingCount.increase();              // 나의 팔로잉 카운트 +
-    targetUser.followarCounter.increase();  // 해당 유저의 팔로워 카운트 +
+    targetUser.increaseFollowarCount();
   }
   
   // 언팔로우 기능 구현
@@ -34,7 +34,18 @@ public class User {
     }
     
     followingCount.increase();
-    targetUser.followarCounter.increase();
+    targetUser.decreaseFollowarCount();
+  }
+  
+  /* targetUser의 카운팅 증감 메서드 2가지
+   -팔로우/언팔로우 기능에서 다른 객체에(targetUser) 접근하는 것을 막기 위함
+   (체이닝, 스트림을 제외하고 .연산자가 2회 쓰일 경우 주의(다른 2개의 객체를 동시 조작하고 있는 것일 수 있음) */
+  private void increaseFollowarCount() {
+    followarCounter.increase();
+  }
+  
+  private void decreaseFollowarCount() {
+    followarCounter.decrease();
   }
   
   
