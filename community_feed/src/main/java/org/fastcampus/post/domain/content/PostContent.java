@@ -26,6 +26,5 @@ public class PostContent extends Content{
     if(contentText.length() > MAX_POST_LENGTH) {
       throw new IllegalArgumentException();
     }
-    
   }
 }
