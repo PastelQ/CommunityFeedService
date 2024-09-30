@@ -1,23 +1,24 @@
 package org.fastcampus.user.domain;
 
 import java.util.Objects;
+import org.fastcampus.common.domain.PositiveIntegerCounter;
 
 // User 정보
 public class User {
 
   private final Long id;
   private final UserInfo info; // UserInfo VO로 대체
-  private final UserRelationCounter followingCount; // User의 팔로잉 카운트 - UserRelationCounter VO 타입
-  private final UserRelationCounter followarCounter;// User의 팔로워 카운터 - UserRelationCounter VO 타입
+  private final PositiveIntegerCounter followingCount; // User의 팔로잉 카운트 - common으로 빼 공통으로 동일한 로직 사용
+  private final PositiveIntegerCounter followarCounter;// User의 팔로워 카운터 - common으로 빼 공통으로 동일한 로직 사용
   
   public User(Long id, UserInfo userInfo) {
     this.id = id;
     this.info = userInfo;
-    this.followingCount = new UserRelationCounter();
-    this.followarCounter = new UserRelationCounter();
+    this.followingCount = new PositiveIntegerCounter();
+    this.followarCounter = new PositiveIntegerCounter();
   }
   
-  // 팔로우 기능 구현 : 팔로우 (UserRelationCounter VO 사용)
+  // 팔로우 기능
   public void follow(User targetUser) {
     if (targetUser.equals(this)) {
       throw new IllegalArgumentException();
