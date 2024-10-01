@@ -21,7 +21,7 @@ public class Main {
     CourseJdbcCommandRepository jdbcCommandRepository = new CourseJdbcCommandRepository();
 
     StudentService studentService = new StudentService(studentRepository);
-    CourseService courseService = new CourseService(courseRepository, jdbcCommandRepository, studentService);
+    CourseService courseService = new CourseService(courseRepository, jdbcCommandRepository, studentRepository);
 
     CoursePresenter coursePresenter = new CoursePresenter();
     StudentPresenter studentPresenter = new StudentPresenter();
