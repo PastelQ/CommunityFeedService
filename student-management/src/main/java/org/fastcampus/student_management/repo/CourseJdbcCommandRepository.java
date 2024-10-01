@@ -1,17 +1,13 @@
 package org.fastcampus.student_management.repo;
 
 import java.util.List;
-import org.fastcampus.student_management.application.course.CourseRepository;
+import org.fastcampus.student_management.application.course.interfaces.CourseCommandRepository;
+import org.fastcampus.student_management.application.course.interfaces.CourseQueryRepository;
 import org.fastcampus.student_management.domain.Course;
 import org.fastcampus.student_management.domain.DayOfWeek;
 
-public class CourseJdbcRepository implements CourseRepository {
-
-  @Override
-  public void save(Course course) {
-    // TODO Auto-generated method stub
-    
-  }
+// Jdbc는 조회만 진행으로 save() 삭제
+public class CourseJdbcCommandRepository implements CourseQueryRepository {
 
   @Override
   public List<Course> getCourseDayOfWeek(DayOfWeek dayOfWeek) {

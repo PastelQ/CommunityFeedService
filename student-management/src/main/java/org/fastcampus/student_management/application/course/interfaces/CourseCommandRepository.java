@@ -1,4 +1,4 @@
-package org.fastcampus.student_management.application.course;
+package org.fastcampus.student_management.application.course.interfaces;
 
 import java.util.List;
 import org.fastcampus.student_management.domain.Course;
@@ -15,11 +15,10 @@ import org.fastcampus.student_management.domain.DayOfWeek;
   - 명확한 역할 분리를 통해 코드 가독성, 유지 보수성을 높임
   - Repo Layer는 데이터 저장소와의 상호작용을 처리하는데 집중
   - App Layer는 비즈니스 로직과 애플리케이션 흐름 제어에 집중 */
-public interface CourseRepository {
+
+//Repository 저장 인터페이스
+public interface CourseCommandRepository {
 
   void save(Course course);
   
-  List<Course> getCourseDayOfWeek(DayOfWeek dayOfWeek);
-  
-  List<Course> getCourseListByStudent(String studentName);
 }
