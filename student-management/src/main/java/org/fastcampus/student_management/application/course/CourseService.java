@@ -23,9 +23,10 @@ public class CourseService {
     this.studentRepository = studentRepository;
   }
 
+  // Course(고수준) -> CourseInfo(저수준) 컴포넌트로 의존하는 경우
   public void registerCourse(CourseInfoDto courseInfoDto) {
     Student student = studentRepository.getStudent(courseInfoDto.getStudentName());
-    Course course = new Course(student, courseInfoDto.getCourseName(), courseInfoDto.getFee(), courseInfoDto.getDayOfWeek(), courseInfoDto.getCourseTime());
+    Course course = new Course(student, courseInfoDto);
     courseCommandRepository.save(course);
   }
   
