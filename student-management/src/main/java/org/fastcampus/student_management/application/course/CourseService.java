@@ -8,13 +8,13 @@ import org.fastcampus.student_management.domain.Course;
 import org.fastcampus.student_management.domain.CourseList;
 import org.fastcampus.student_management.domain.DayOfWeek;
 import org.fastcampus.student_management.domain.Student;
-import org.fastcampus.student_management.repo.CourseRepository;
+import org.fastcampus.student_management.repo.CourseRepositoryImpl;
 
 public class CourseService {
-  private final CourseRepository courseRepository;
+  private final CourseRepositoryImpl courseRepository;
   private final StudentService studentService;
 
-  public CourseService(CourseRepository courseRepository, StudentService studentService) {
+  public CourseService(CourseRepositoryImpl courseRepository, StudentService studentService) {
     this.courseRepository = courseRepository;
     this.studentService = studentService;
   }
