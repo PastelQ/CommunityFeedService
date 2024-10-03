@@ -12,6 +12,10 @@ public class User {
   private final PositiveIntegerCounter followarCounter;// User의 팔로워 카운터 - common으로 빼 공통으로 동일한 로직 사용
   
   public User(Long id, UserInfo userInfo) {
+    if(userInfo == null) {
+      throw new IllegalArgumentException();
+    }
+    
     this.id = id;
     this.info = userInfo;
     this.followingCount = new PositiveIntegerCounter();

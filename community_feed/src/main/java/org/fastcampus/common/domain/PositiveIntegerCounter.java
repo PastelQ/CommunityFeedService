@@ -20,4 +20,9 @@ public class PositiveIntegerCounter {
     }
     this.count--;
   }
+  
+  // Get Method
+  public int getCount() {
+    return count;
+  }
 }
